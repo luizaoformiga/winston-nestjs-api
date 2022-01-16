@@ -12,7 +12,6 @@ import { User } from '../users/user.entity';
 import { UserRole } from '../users/user-roles.enum';
 import { CredentialsDto } from './dto/credentials.dto';
 
-
 @Injectable()
 export class AuthService {
   constructor(
@@ -29,7 +28,11 @@ export class AuthService {
     }
   }
 
-  async signIn(credentialsDto: CredentialsDto) {
+  async signIn(
+    credentialsDto: CredentialsDto,
+  ): Promise<{
+    token: string;
+  }> {
     const user = await this.userRepository.checkCredentials(credentialsDto);
 
     if (user === null) {
@@ -39,7 +42,7 @@ export class AuthService {
     const jwtPayload = {
       id: user.id,
     };
-    const token = await this.jwtService.sign(jwtPayload);
+    const token = this.jwtService.sign(jwtPayload);
 
     return { token };
   }
