@@ -1,6 +1,7 @@
 # compiled output
 /dist
 /node_modules
+garantti.db
 
 # Logs
 logs
