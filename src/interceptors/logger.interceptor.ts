@@ -18,7 +18,7 @@ export class LoggerInterceptor implements NestInterceptor {
     return next.handle();
   }
 
-  private log(req: Request) {
+  private log(req: Request): void {
     const body = { ...req.body };
     delete body.password;
     delete body.passwordConfirmation;
@@ -29,6 +29,7 @@ export class LoggerInterceptor implements NestInterceptor {
     this.logger.info({
       timestamp: new Date().toISOString(),
       method: req.method,
+      method_status: "verificar se deu certo ou não",
       route: req.route.path,
       data: {
         body: body,

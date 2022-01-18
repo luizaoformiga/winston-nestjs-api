@@ -10,4 +10,3 @@ export const winstonConsoleFormat = format.printf(
     )}] ${colors.green(message)} - ${JSON.stringify(meta)}`;
   },
 );
-//timestamp

@@ -8,10 +8,11 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { LoggerInterceptor } from './interceptors/logger.interceptor';
 import { winstonConfig } from './configs/winston.config';
+import { connectionMongoDB } from './configs/mongodb.config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeOrmConfig),
+    TypeOrmModule.forRoot(connectionMongoDB),//typeOrmConfig
     WinstonModule.forRoot(winstonConfig),
     UsersModule,
     AuthModule,
