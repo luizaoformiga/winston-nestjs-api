@@ -2,9 +2,10 @@ import {
   BaseEntity,
   Entity,
   Unique,
-  PrimaryGeneratedColumn,
+  ObjectIdColumn,
   Column,
   CreateDateColumn,
+  PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
@@ -12,31 +13,31 @@ import * as bcrypt from 'bcrypt';
 @Entity()
 @Unique(['email'])
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @ObjectIdColumn()
   id: string;
 
-  @Column({ nullable: false, type: 'varchar', length: 200 })
+  @Column()
   email: string;
 
-  @Column({ nullable: false, type: 'varchar', length: 200 })
+  @Column()
   name: string;
 
-  @Column({ nullable: false, type: 'varchar', length: 20 })
+  @Column()
   role: string;
 
-  @Column({ nullable: false, default: true })
+  @Column()
   status: boolean;
 
-  @Column({ nullable: false })
+  @Column()
   password: string;
 
-  @Column({ nullable: false })
+  @Column()
   salt: string;
 
-  @Column({ nullable: true, type: 'varchar', length: 64 })
+  @Column()
   confirmationToken: string;
 
-  @Column({ nullable: true, type: 'varchar', length: 64 })
+  @Column()
   recoverToken: string;
 
   @CreateDateColumn()

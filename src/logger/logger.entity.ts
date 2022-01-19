@@ -1,7 +1,10 @@
-import { BaseEntity, Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, ObjectIdColumn, PrimaryColumn } from 'typeorm';
 
 @Entity()
-export class Logger extends BaseEntity {
+export class Logger {
+  @ObjectIdColumn()
+  _id: string;
+
   @PrimaryColumn()
   user_id: string;
 
