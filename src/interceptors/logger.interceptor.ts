@@ -29,15 +29,16 @@ export class LoggerInterceptor implements NestInterceptor {
     this.logger.info({
       timestamp: new Date().toISOString(),
       method: req.method,
-      method_status: "verificar se deu certo ou não",
+      action: req.res.statusCode,
       route: req.route.path,
+      user_id: "",
+      entity_id: "",
+      entity_type: "",
       data: {
         body: body,
         query: req.query,
         params: req.params,
       },
-      from: req.ip,
-      madeBy: userEmail,
     });
   }
 }

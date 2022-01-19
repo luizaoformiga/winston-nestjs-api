@@ -1,5 +1,4 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-//import { createConnection, Connection } from 'typeorm';
 
 export const connectionMongoDB: TypeOrmModuleOptions = {
   type: 'mongodb',

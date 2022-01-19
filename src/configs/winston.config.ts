@@ -1,13 +1,13 @@
 import { WinstonModuleOptions } from 'nest-winston';
 import * as winston from 'winston';
-import { winstonConsoleFormat } from './winston.format';
-
 import { MongoDBConnectionOptions } from 'winston-mongodb';
 import 'winston-mongodb';
 
+import { winstonConsoleFormat } from './winston.format';
+
 const options: MongoDBConnectionOptions = {
   level: 'info',
-  db: 'garantti',
+  db: 'mongodb://localhost:27017/garantti',
   collection: 'logs',
   options: {
     useUnifiedTopology: true,
